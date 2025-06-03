@@ -21,7 +21,7 @@ An AI-powered photography assistant that uses RAG (Retrieval Augmented Generatio
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Pras-subash/photography-ai-assistant.git
+git clone https://github.com/Pras-subash/photo-ai-assistant.git
 cd photography-ai-assistant
 ```
 
@@ -32,12 +32,13 @@ pip install -r requirements.txt
 
 3. Run Ollama (ensure it's installed first):
 ```bash
-ollama run llama2
+ollama run llama3
 ```
 
 ## Usage
 
 Run the main script:
+Please note , you might want to create a venv where you do this.
 ```bash
 python photography_ai.py
 ```
