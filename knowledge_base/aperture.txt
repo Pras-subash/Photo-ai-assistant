@@ -1,0 +1,3 @@
+Aperture is a fundamental concept in photography that controls the amount of light entering the camera lens and affects the depth of field. It's measured in f-numbers (f-stops). A lower f-number (e.g., f/2.8) means a wider aperture, letting in more light and creating a shallow depth of field (blurry background). A higher f-number (e.g., f/16) means a narrower aperture, letting in less light and resulting in a larger depth of field (more of the scene in focus).
+
+Wide apertures are commonly used for portraits to isolate the subject, while narrow apertures are preferred for landscapes to ensure everything from foreground to background is sharp.

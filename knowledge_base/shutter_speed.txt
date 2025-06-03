@@ -1,0 +1,4 @@
+Shutter speed dictates how long the camera's shutter remains open, allowing light to hit the sensor. It is measured in fractions of a second (e.g., 1/1000s, 1/60s) or full seconds.
+
+Fast shutter speeds (e.g., 1/1000s) freeze motion, ideal for sports or fast-moving subjects. Slow shutter speeds (e.g., 1/30s or longer) blur motion, creating artistic effects like light trails or silky water. A tripod is essential for slow shutter speeds to prevent camera shake.
+
