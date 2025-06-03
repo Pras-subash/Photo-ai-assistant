@@ -1,6 +1,6 @@
 # Photography AI Assistant
 
-An AI-powered photography assistant that uses RAG (Retrieval Augmented Generation) architecture to answer photography-related questions.
+An AI-powered photography assistant that uses RAG (Retrieval Augmented Generation) architecture to answer photography-related questions. What I have not chechecked in here are random PDF files on teaching photography that I found on the web, and dropped it in there. The llama3/Ollama/sentence-transformers based AI is then able to access the documentation and provide answers needed.
 
 ## Features
 
