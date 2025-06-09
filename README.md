@@ -11,11 +11,43 @@ An AI-powered photography assistant that uses RAG (Retrieval Augmented Generatio
 
 ## Requirements
 
+### Core Dependencies
 - Python 3.8+
-- Ollama
-- LangChain
-- ChromaDB
-- HuggingFace Transformers
+- Ollama (for local LLM inference)
+- LangChain and LangChain Community (for RAG pipeline orchestration)
+- ChromaDB (for vector storage)
+- HuggingFace Transformers (for embeddings)
+
+### Python Packages
+```bash
+langchain>=0.1.0
+langchain-community>=0.0.10
+chromadb>=0.4.22
+ollama>=0.1.6
+sentence-transformers>=2.2.2
+pypdf>=3.17.1
+unstructured>=0.11.0
+python-magic>=0.4.27
+python-magic-bin>=0.4.14  # For macOS
+```
+
+### System Requirements
+- Memory: Minimum 8GB RAM (16GB recommended)
+- Storage: 1GB for base installation, additional space for knowledge base
+- CPU: Modern multi-core processor
+- GPU: Optional, but recommended for faster embedding generation
+
+### Optional Dependencies
+- `unstructured` and related packages for handling various document formats:
+  - docx
+  - markdown
+  - html
+- `tiktoken` for token counting
+- `faiss-cpu` or `faiss-gpu` for alternative vector storage
+
+### Development Tools
+- Git (for version control)
+- Virtual environment manager (venv or conda)
 
 ## Installation
 

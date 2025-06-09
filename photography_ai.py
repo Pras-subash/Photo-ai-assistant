@@ -25,6 +25,8 @@ Key Functions:
         Sets up the Ollama language model
     ask_ai_assistant(query, vector_store, llm) -> str
         Processes user queries and returns AI responses
+    get_embedding_model() -> HuggingFaceEmbeddings
+        Initializes the sentence transformer embedding model
 
 Dependencies:
     - langchain and langchain_community
@@ -39,7 +41,15 @@ Usage:
 """
 
 import os
-from langchain_community.document_loaders import TextLoader, PyPDFLoader
+
+from langchain_community.document_loaders import (
+    TextLoader,
+    PyPDFLoader,
+    UnstructuredWordDocumentLoader,
+    UnstructuredMarkdownLoader,
+    UnstructuredHTMLLoader
+)
+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -83,28 +93,43 @@ def get_ollama_llm(model_name="llama2"):
     llm = Ollama(model=model_name)
     return llm
 
+from langchain_community.document_loaders import (
+    TextLoader,
+    PyPDFLoader,
+    UnstructuredWordDocumentLoader,
+    UnstructuredMarkdownLoader,
+    UnstructuredHTMLLoader
+)
+
 def load_and_chunk_documents(knowledge_base_path="knowledge_base"):
     documents = []
     for filename in os.listdir(knowledge_base_path):
         filepath = os.path.join(knowledge_base_path, filename)
         if filename.endswith(".txt"):
-            print( f"Loading text file: {filename}")
+            print(f"Loading text file: {filename}")
             loader = TextLoader(filepath)
-            documents.extend(loader.load())
         elif filename.endswith(".pdf"):
+            print(f"Loading PDF file: {filename}")
             loader = PyPDFLoader(filepath)
-            print( f"Loading pdf file: {filename}")
-            documents.extend(loader.load())
-        # Add more loaders for other formats if needed
+        elif filename.endswith(".docx"):
+            print(f"Loading Word document: {filename}")
+            loader = UnstructuredWordDocumentLoader(filepath)
+        elif filename.endswith(".md"):
+            print(f"Loading Markdown file: {filename}")
+            loader = UnstructuredMarkdownLoader(filepath)
+        elif filename.endswith(".html"):
+            print(f"Loading HTML file: {filename}")
+            loader = UnstructuredHTMLLoader(filepath)
+        else:
+            print(f"Unsupported file format: {filename}")
+            continue
+        documents.extend(loader.load())
 
-    # Chunking strategy
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000, # Max characters per chunk
-        chunk_overlap=200 # Overlap to maintain context between chunks
-    )
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = text_splitter.split_documents(documents)
     print(f"Loaded {len(documents)} documents and split into {len(chunks)} chunks.")
     return chunks
+
     
 def get_embedding_model():
     # This model is good for general purpose embeddings and runs locally.

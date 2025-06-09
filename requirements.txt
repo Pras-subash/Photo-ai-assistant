@@ -1,8 +1,8 @@
 langchain
 langchain_community
+unstructured
 chromadb
 ollama
 huggingface-hub
 sentence-transformers
 pypdf
-
